@@ -4,12 +4,6 @@ var webpack = require('webpack')
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    // bundle the client for webpack-dev-server
-    // and connect to the provided endpoint
-
-    'webpack/hot/only-dev-server',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
     './index.js'
   ],
   output: {
@@ -19,8 +13,6 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    hot: true,
-    // enable HMR on the server
 
     contentBase: path.resolve(__dirname, 'dist'),
     // match the output path
