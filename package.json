@@ -1,0 +1,39 @@
+{
+  "name": "redux-testing",
+  "version": "1.0.0",
+  "description": "Examples of testing redux with thunks, promises, generators, and async/await",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolechung/redux-testing.git"
+  },
+  "keywords": [
+    "redux",
+    "thunks",
+    "promises",
+    "generators",
+    "async/await"
+  ],
+  "author": "Nicole Chung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolechung/redux-testing/issues"
+  },
+  "homepage": "https://github.com/nicolechung/redux-testing#readme",
+  "dependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.3.2",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
