@@ -13,10 +13,12 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-
+    overlay: true,
     contentBase: path.resolve(__dirname, 'dist'),
     // match the output path
-
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
     publicPath: '/'
     // match the output `publicPath`
   },
