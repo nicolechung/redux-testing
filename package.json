@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "api": "node api/index.js",
-    "thunk": "cd examples/thunks; ../../node_modules/.bin/webpack-dev-server --inline"
+    "thunk": "cd examples/thunks; ../../node_modules/.bin/webpack-dev-server --inline",
+    "promises": "cd examples/promises; ../../node_modules/.bin/webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
