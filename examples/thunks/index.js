@@ -28,6 +28,7 @@ function fetchLyric () {
   }
 }
 
+// todo: fetch a failed request
 
 // reducer
 const initialState = {

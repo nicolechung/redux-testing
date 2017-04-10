@@ -19,15 +19,20 @@ function fetchLyric () {
   return createAction(FETCH_LYRIC)(request)
 }
 
+// todo: fetch a failed request
+
 
 // reducer
 const initialState = {
   lyric: ''
 }
 
-console.log('promise middleware')
-console.log(promiseMiddleware)
 
+/*
+  Instead of actions for each state (pending, success, error)
+  redux promise just returns the response (for a successfully resolved promise)
+  or the error object
+*/
 function reducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_LYRIC:
