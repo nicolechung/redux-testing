@@ -23,6 +23,7 @@ export function fetchLyric () {
     return request.then(response => response.data)
     .then((response) => {
       // FETCH_SUCCESS
+      // using `createAction` creates a payload key with the value of response
       dispatch(createAction(`FETCH_SUCCESS`)(response))
     })
     .catch((error) => {
