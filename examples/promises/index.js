@@ -1,15 +1,15 @@
 // 'redux-promise' middleware
 
 import axios from 'axios'
-import promiseMiddleware from 'redux-promise';
+import promiseMiddleware from 'redux-promise'
 import { createStore, applyMiddleware } from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {createAction} from 'redux-actions'
 
-const FETCH_LYRIC = 'FETCH_LYRIC'
+export const FETCH_LYRIC = 'FETCH_LYRIC'
 
 // action
-function fetchLyric () {
+export function fetchLyric () {
   const request = axios.get('/api/passionfruit')
 
   /*
@@ -36,9 +36,10 @@ const initialState = {
 function reducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_LYRIC:
+      let lyric = action.payload.data.lyric
       return {
         ...state,
-        lyric: action.payload
+        lyric
       }
     default:
       return state
