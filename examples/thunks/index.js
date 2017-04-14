@@ -8,8 +8,13 @@ const FETCHING_LYRIC = 'FETCHING_LYRIC'
 const FETCH_FAILED = 'FETCH_FAILED'
 const FETCH_SUCCESS = 'FETCH_SUCCESS'
 
+// test function
+export function sum (a, b) {
+  return a + b
+}
+
 // action
-function fetchLyric () {
+export function fetchLyric () {
   const request = axios.get('/api/passionfruit')
 
   return (dispatch, getState) => {
@@ -27,6 +32,11 @@ function fetchLyric () {
     })
   }
 }
+
+/*
+  How do you tests these?
+  send a promise resolve, also a promise reject
+*/
 
 // todo: fetch a failed request
 
