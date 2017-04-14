@@ -17,7 +17,7 @@ afterEach(() => {
   moxios.uninstall()
 })
 
-test('it creates FETCH_SUCCESS when fetching the lyric has been done', () => {
+test('it creates FETCH_LYRIC when fetching has been started, and returns a response object', () => {
   let request
   moxios.wait(() => {
     request = moxios.requests.mostRecent()
