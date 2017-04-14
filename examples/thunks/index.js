@@ -4,9 +4,9 @@ import { createStore, applyMiddleware } from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {createAction} from 'redux-actions'
 
-const FETCHING_LYRIC = 'FETCHING_LYRIC'
-const FETCH_FAILED = 'FETCH_FAILED'
-const FETCH_SUCCESS = 'FETCH_SUCCESS'
+export const FETCHING_LYRIC = 'FETCHING_LYRIC'
+export const FETCH_FAILED = 'FETCH_FAILED'
+export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 
 // test function
 export function sum (a, b) {
@@ -23,7 +23,6 @@ export function fetchLyric () {
     return request.then(response => response.data)
     .then((response) => {
       // FETCH_SUCCESS
-      console.log('----fetch success----')
       dispatch(createAction(`FETCH_SUCCESS`)(response))
     })
     .catch((error) => {
