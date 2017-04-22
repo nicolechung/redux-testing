@@ -10,8 +10,9 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "api": "node api/index.js",
-    "thunk": "cd examples/thunks; ../../node_modules/.bin/webpack-dev-server --inline",
-    "promises": "cd examples/promises; ../../node_modules/.bin/webpack-dev-server --inline"
+    "basic-thunk": "cd examples/basic-fetch/redux-thunk; ../../../node_modules/.bin/webpack-dev-server --inline",
+    "basic-promise": "cd examples/basic-fetch/redux-promise; ../../../node_modules/.bin/webpack-dev-server --inline",
+    "basic-saga": "cd examples/basic-fetch/redux-saga; ../../../node_modules/.bin/webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "axios": "^0.16.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-es2015": "^6.24.1",
     "express": "^4.15.2",

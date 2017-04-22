@@ -24,3 +24,6 @@ However when testing with actions that use `axios` you should use `moxios` to mo
 - Have to mock the request and reponse object
 - because redux-promise just returns the response or error object, hard to mock discrete stages of the api call (loading, then success/error)
 - because middleware returns the ACTUAL response, not just the part you want, testing can be a bit tricker (in jest you have to use toMatchObject which takes your mock object and compares it to the mock response, which might contain more key/value pairs than you need)
+
+# redux-saga
+- doesn't appear to be FSA out of the box

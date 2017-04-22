@@ -1,15 +1,22 @@
 // 'redux-promise' middleware
 
 import axios from 'axios'
-import promiseMiddleware from 'redux-promise';
+import { createSagaMiddleware, takeEvery } from 'redux-saga'
 import { createStore, applyMiddleware } from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {createAction} from 'redux-actions'
 
+const sagaMiddleware = createSagaMiddleware()
+
 const FETCH_LYRIC = 'FETCH_LYRIC'
 
-// action
-function* fetchLyric () {
+// action: worker
+export function* fetchLyric () {
+  try {
+    
+  } catch(error) {
+
+  }
   const request = axios.get('/api/passionfruit')
 
   /*
@@ -19,6 +26,10 @@ function* fetchLyric () {
   return createAction(FETCH_LYRIC)(request)
 }
 
+// action: watcher (sagas have a worker and a watcher)
+export default function* rootSaga() {
+  yield takeEvery(FETCH_LYRIC, fetchLyric)
+}
 // todo: fetch a failed request
 
 
@@ -50,7 +61,7 @@ function reducer (state = initialState, action) {
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(
-    promiseMiddleware
+    sagaMiddleware
   ))
 )
 
