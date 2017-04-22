@@ -49,5 +49,7 @@ test('it creates FETCH_LYRIC when fetching has been started, and returns a respo
   .then(() => {
     let actions = store.getActions()
     expect(actions[0]).toMatchObject(expectedAction)
+  }).catch((error) => {
+    console.log('error: ' + error)
   })
 })

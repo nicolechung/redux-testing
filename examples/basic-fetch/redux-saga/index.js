@@ -7,9 +7,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const FETCH_LYRIC = 'FETCH_LYRIC'
-const FETCH_SUCCEDED = 'FETCH_SUCCEDED'
-const FETCH_FAILED = 'FETCH_FAILED'
+export const FETCH_LYRIC = 'FETCH_LYRIC'
+export const FETCH_SUCCEDED = 'FETCH_SUCCEDED'
+export const FETCH_FAILED = 'FETCH_FAILED'
 
 // action: worker
 export function* fetchLyric () {
