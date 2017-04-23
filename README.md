@@ -1,9 +1,11 @@
-# redux-testing
+# redux async actions
+
 Testing async actions in redux using:
 - redux-thunks
 - redux-promise
 - redux-saga
-- redux-observables and async/await
+- redux-observable
+- async/await
 
 Work in progress (i.e. not a thing yet)
 
