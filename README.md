@@ -3,27 +3,36 @@ Testing redux using thunks, promises, generators and async/await
 
 Work in progress (i.e. not a thing yet)
 
+To run the examples
 
-# Redux thunk - testing libraries
-When testing with actions that use `fetch`, you can use `nock` to mock the request/response.
+### redux-thunk
 
-However when testing with actions that use `axios` you should use `moxios` to mock the request/reponse.
+```
+npm run api
+npm run basic-thunk
+```
 
-# Redux thunk
-- can dispatch many actions from a single action
 
-## Testing and Mocking
-- Have to mock the request and the response object
-- In your action creator, you have more control of your payload, so mocking it is easier
+### redux-promise
 
-# redux-promise middleware
-- single action returns either the response or the error object from a Promise resolve or reject
+```
+npm run api
+npm run basic-promise
+```
 
-## Testing and Mocking
-- redux-promise, on success, returns the response object (not the request promise object).
-- Have to mock the request and reponse object
-- because redux-promise just returns the response or error object, hard to mock discrete stages of the api call (loading, then success/error)
-- because middleware returns the ACTUAL response, not just the part you want, testing can be a bit tricker (in jest you have to use toMatchObject which takes your mock object and compares it to the mock response, which might contain more key/value pairs than you need)
+Note: redux-promise-middleware example in the works
 
-# redux-saga
-- doesn't appear to be FSA out of the box
+
+
+### redux-saga
+
+```
+npm run api
+npm run basic-saga
+```
+
+## tests
+
+```
+npm run test
+```

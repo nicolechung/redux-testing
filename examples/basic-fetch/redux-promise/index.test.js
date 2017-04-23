@@ -47,6 +47,7 @@ test('it creates FETCH_LYRIC when fetching has been started, and returns a respo
 
   return store.dispatch(fetchLyric())
   .then(() => {
+    console.log('mock success')
     let actions = store.getActions()
     expect(actions[0]).toMatchObject(expectedAction)
   }).catch((error) => {
