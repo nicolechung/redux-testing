@@ -1,5 +1,3 @@
-// 'redux-promise' middleware
-
 import axios from 'axios'
 import promiseMiddleware from 'redux-promise'
 import { createStore, applyMiddleware } from 'redux'

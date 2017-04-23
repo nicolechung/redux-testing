@@ -12,7 +12,9 @@
     "api": "node api/index.js",
     "basic-thunk": "cd examples/basic-fetch/redux-thunk; ../../../node_modules/.bin/webpack-dev-server --inline",
     "basic-promise": "cd examples/basic-fetch/redux-promise; ../../../node_modules/.bin/webpack-dev-server --inline",
-    "basic-saga": "cd examples/basic-fetch/redux-saga; ../../../node_modules/.bin/webpack-dev-server --inline"
+    "basic-saga": "cd examples/basic-fetch/redux-saga; ../../../node_modules/.bin/webpack-dev-server --inline",
+    "basic-observer": "cd examples/basic-fetch/redux-observable; ../../../node_modules/.bin/webpack-dev-server --inline",
+    "basic-async-await": "cd examples/basic-fetch/async-await; ../../../node_modules/.bin/webpack-dev-server --inline"
   },
   "repository": {
     "type": "git",
@@ -48,6 +50,7 @@
   },
   "devDependencies": {
     "babel-jest": "^19.0.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "expect": "^1.20.2",
     "jest": "^19.0.2",

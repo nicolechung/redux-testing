@@ -1,7 +1,13 @@
 # redux-testing
-Testing redux using thunks, promises, generators and async/await
+Testing async actions in redux using:
+- redux-thunks
+- redux-promise
+- redux-saga
+- redux-observables and async/await
 
 Work in progress (i.e. not a thing yet)
+
+These examples are redux-only, React JS is not being used.
 
 To run the examples
 
@@ -29,6 +35,15 @@ Note: redux-promise-middleware example in the works
 ```
 npm run api
 npm run basic-saga
+```
+
+
+## async-await
+
+used:
+
+```
+babel-plugin-transform-async-to-generator
 ```
 
 ## tests
