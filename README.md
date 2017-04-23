@@ -46,6 +46,27 @@ used:
 babel-plugin-transform-async-to-generator
 ```
 
+.babelrc
+Didn't use `preset-env`, instead went back to es2015:
+
+```
+{
+  "presets": ["es2015"],
+  "plugins": ["transform-object-rest-spread", "transform-async-to-generator"]
+}
+```
+
+webpack config
+
+```
+module.exports = {
+  entry: [
+    'babel-polyfill',
+   ...
+    './index.js'
+  ],
+```
+
 ## tests
 
 ```
