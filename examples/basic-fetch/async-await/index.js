@@ -9,6 +9,7 @@ export const FETCH_LYRIC_FAILED = 'FETCH_LYRIC_FAILED'
 export const FETCH_LYRIC_SUCCESS = 'FETCH_LYRIC_SUCCESS'
 
 // action
+// what is an async function return at the end?
 export function fetchLyric () {
   return async (dispatch, getState) => {
     dispatch(createAction(FETCHING_LYRIC))
@@ -69,7 +70,7 @@ const store = createStore(
 
 // initial state
 console.log(store.getState())
-// dispatch the action we created
+// dispatch the action we created -> is this returning a promise
 store.dispatch(fetchLyric()).then(() => {
   console.log(store.getState())
 })

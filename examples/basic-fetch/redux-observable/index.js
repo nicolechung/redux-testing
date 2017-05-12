@@ -6,29 +6,27 @@ import {createAction} from 'redux-actions'
 import {Observable} from  'rxjs/Observable'
 import { ajax } from 'rxjs/observable/dom/ajax';
 
-const FETCH_LYRIC = 'FETCH_LYRIC'
-const FETCH_LYRIC_SUCCESS = 'FETCH_LYRIC_SUCCESS'
-const FETCH_LYRIC_ERROR = 'FETCH_LYRIC_ERROR'
+export const FETCH_LYRIC = 'FETCH_LYRIC'
+export const FETCH_LYRIC_SUCCESS = 'FETCH_LYRIC_SUCCESS'
+export const FETCH_LYRIC_ERROR = 'FETCH_LYRIC_ERROR'
 
 
 // action creators
-const fetchLyric = createAction(FETCH_LYRIC)
+export const fetchLyric = createAction(FETCH_LYRIC)
 const fetchLyricSuccess = createAction(FETCH_LYRIC_SUCCESS)
 const fetchLyricFail = createAction(FETCH_LYRIC_ERROR)
 
-// action: worker
-const fetchLyricEpic = action$ =>
+export const fetchLyricEpic = action$ =>
 action$.ofType(FETCH_LYRIC)
   .mergeMap(action =>
-    ajax.getJSON('/api/passionfruit')
+    ajax.getJSON('https://tranquil-fortress-99747.herokuapp.com/api/passionfruit')
       .map(response => fetchLyricSuccess(response))
       .catch(error => Observable.of(fetchLyricFail(error)))
   )
 
-// action: watcher (sagas have a worker and a watcher)
 
 // todo: fetch a failed request
-const rootEpic = combineEpics(fetchLyricEpic)
+export const rootEpic = combineEpics(fetchLyricEpic)
 
 // reducer
 const initialState = {
@@ -68,5 +66,10 @@ const store = createStore(
 // initial state
 console.log(store.getState())
 // dispatch the action we created
-store.dispatch(fetchLyric())
+store.dispatch({type: FETCH_LYRIC})
+setTimeout(function() {
+  console.log('later')
+  console.log(store.getState())
+}, 2000)
+
 

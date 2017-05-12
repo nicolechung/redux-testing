@@ -9,4 +9,3 @@ test('fetchLyric Saga test', () => {
   expect(gen.next().value).toEqual(call(axios.get, '/api/passionfruit'))
   expect(gen.next().value).toEqual(put({type: FETCH_SUCCEDED}))
 })
-
