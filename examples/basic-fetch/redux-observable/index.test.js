@@ -18,8 +18,6 @@ test('it creates FETCH_LYRIC_SUCCESS when fetching the lyric has been done', () 
 
   return fetchLyricEpic(action$).toPromise()
            .then((actionReceived) => {
-              console.log('action received')
-              console.log(actionReceived)
               expect(actionReceived.type).toBe('FETCH_LYRIC_SUCCESS')
               expect(actionReceived.payload).toEqual(payload)
            })

@@ -19,7 +19,7 @@ const fetchLyricFail = createAction(FETCH_LYRIC_ERROR)
 export const fetchLyricEpic = action$ =>
 action$.ofType(FETCH_LYRIC)
   .mergeMap(action =>
-    ajax.getJSON('https://tranquil-fortress-99747.herokuapp.com/api/passionfruit')
+    ajax.getJSON('http://tranquil-fortress-99747.herokuapp.com/api/passionfruit')
       .map(response => fetchLyricSuccess(response))
       .catch(error => Observable.of(fetchLyricFail(error)))
   )
@@ -42,7 +42,6 @@ const initialState = {
 function reducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_LYRIC_SUCCESS:
-      console.log('success')
       let lyric = action.payload.lyric
       return {
         ...state,

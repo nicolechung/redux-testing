@@ -3,25 +3,13 @@ import configureMockStore from 'redux-mock-store'
 import { createEpicMiddleware } from 'redux-observable';
 import nock from 'nock'
 
-import { rootEpic, fetchLyricEpic, FETCH_LYRIC, FETCH_LYRIC_SUCCESS } from './index'
+import { rootEpic, FETCH_LYRIC, FETCH_LYRIC_SUCCESS } from './index'
 
 let epicMiddleware = createEpicMiddleware(rootEpic)
 const middlewares = [epicMiddleware]
-let store = {}
+
 const mockStore = configureMockStore(middlewares)
 
-beforeEach(() => {
-  store = mockStore({
-    isFetching: false,
-    didError: false,
-    lyric: ''
-  })
-})
-
-afterEach(() => {
-  nock.cleanAll()
-  epicMiddleware.replaceEpic(rootEpic);
-})
 
 
 test('it creates FETCH_SUCCESS when fetching the lyric has been done', () => {
@@ -31,9 +19,9 @@ test('it creates FETCH_SUCCESS when fetching the lyric has been done', () => {
       'lyric': "Passionate from miles away / Passive with the things you say / Passin' up on my old ways / I can't blame you no, no"
     }
   }
-  nock('https://tranquil-fortress-99747.herokuapp.com/')
-    .get('api/passionfruit')
-    .reply(200, payload)
+  nock('tranquil-fortress-99747.herokuapp.com/')
+    .get('/api/passionfruit')
+    .reply(200, payload, {'Content-Type': 'application/json'})
 
   const expectedActions = [
     {type: FETCH_LYRIC},
@@ -44,6 +32,10 @@ test('it creates FETCH_SUCCESS when fetching the lyric has been done', () => {
       }
     }
   ]
+
+  const store = mockStore({
+    lyric: ''
+  })
 
   store.dispatch({type: FETCH_LYRIC})
   console.log('----store----')
